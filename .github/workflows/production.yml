@@ -32,7 +32,7 @@ jobs:
         
     - name: Run Build
       run: yarn build
-      
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAMEHEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          remote_branch: master
+          branch: master
