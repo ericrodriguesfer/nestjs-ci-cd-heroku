@@ -21,7 +21,6 @@ ConfigModule.forRoot();
       pool: {
         max: 3,
         min: 1,
-        idle: 10000,
       },
       extra: {
         ssl: {
