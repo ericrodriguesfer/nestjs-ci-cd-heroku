@@ -1,38 +1,28 @@
 name: Node.js CI
-
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
   workflow_dispatch:
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Use Node.js environment
       uses: actions/setup-node@v3.1.1
       with: 
         node-version: 16.16.0
-
     - name: Cache
       uses: actions/cache@v3.0.2
       with:
         path: '**/node_modules'
         key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
     - name: Install dependencies 
-      run: yarn --legacy-peer-deps
-        
+      run: yarn --legacy-peer-deps  
     - name: Run Build
       run: yarn build
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
