@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from '../services/app.service';
 
 import IResponseDefault from '../contract/IResponseDefaul';
+import { AppService } from '../services/app.service';
 
 @Controller()
 export class AppController {
